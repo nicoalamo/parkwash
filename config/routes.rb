@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :washes
+  resources :vehicles
   devise_for :washers
   # devise_for :users
 

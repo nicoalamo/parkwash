@@ -1,0 +1,42 @@
+<%= form_with(model: wash, local: true) do |form| %>
+  <% if wash.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wash.errors.count, "error") %> prohibited this wash from being saved:</h2>
+
+      <ul>
+      <% wash.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :wash_date %>
+    <%= form.date_select :wash_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehicle_id %>
+    <%= form.text_field :vehicle_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wash_type %>
+    <%= form.number_field :wash_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :washer_id %>
+    <%= form.text_field :washer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wash_discount %>
+    <%= form.number_field :wash_discount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

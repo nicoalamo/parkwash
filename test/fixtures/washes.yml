@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wash_date: 2018-09-27
+  vehicle: one
+  wash_type: 1
+  washer: one
+  wash_discount: 1
+
+two:
+  wash_date: 2018-09-27
+  vehicle: two
+  wash_type: 1
+  washer: two
+  wash_discount: 1
