@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bank: MyString
+  statement_date: 2018-10-01
+  description: MyText
+  credit: 1
+  commission: 1
+  user: one
+
+two:
+  bank: MyString
+  statement_date: 2018-10-01
+  description: MyText
+  credit: 1
+  commission: 1
+  user: two

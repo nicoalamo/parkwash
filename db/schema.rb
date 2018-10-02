@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_28_005847) do
+ActiveRecord::Schema.define(version: 2018_10_01_232158) do
+
+  create_table "payments", force: :cascade do |t|
+    t.string "bank"
+    t.date "statement_date"
+    t.text "description"
+    t.integer "credit"
+    t.integer "commission"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,6 +78,8 @@ ActiveRecord::Schema.define(version: 2018_09_28_005847) do
     t.integer "wash_discount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "payment_id"
+    t.index ["payment_id"], name: "index_washes_on_payment_id"
     t.index ["vehicle_id"], name: "index_washes_on_vehicle_id"
     t.index ["washer_id"], name: "index_washes_on_washer_id"
   end
