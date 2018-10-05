@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wash type code:</strong>
+  <%= @wash_type.wash_type_code %>
+</p>
+
+<p>
+  <strong>Wash type name:</strong>
+  <%= @wash_type.wash_type_name %>
+</p>
+
+<p>
+  <strong>Wash type description:</strong>
+  <%= @wash_type.wash_type_description %>
+</p>
+
+<%= link_to 'Edit', edit_wash_type_path(@wash_type) %> |
+<%= link_to 'Back', wash_types_path %>

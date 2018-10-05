@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_232158) do
+ActiveRecord::Schema.define(version: 2018_10_05_003734) do
+
+  create_table "credit_notes", force: :cascade do |t|
+    t.date "credit_note_creation_date"
+    t.integer "credit_note_informed_gross_amount"
+    t.string "credit_note_sii_status"
+    t.integer "receipt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receipt_id"], name: "index_credit_notes_on_receipt_id"
+  end
 
   create_table "payments", force: :cascade do |t|
     t.string "bank"
@@ -22,6 +32,51 @@ ActiveRecord::Schema.define(version: 2018_10_01_232158) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "place_name"
+    t.string "place_address"
+    t.string "place_commune"
+    t.string "place_city"
+    t.string "place_contact_name"
+    t.string "place_contact_cellphone"
+    t.string "place_contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "wash_type_id"
+    t.integer "vehicle_size_id"
+    t.integer "price_gross_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_prices_on_place_id"
+    t.index ["vehicle_size_id"], name: "index_prices_on_vehicle_size_id"
+    t.index ["wash_type_id"], name: "index_prices_on_wash_type_id"
+  end
+
+  create_table "receipts", force: :cascade do |t|
+    t.date "receipt_creation_date"
+    t.integer "receipt_informed_gross_amount"
+    t.integer "receipt_total_discount_amount"
+    t.integer "receipt_sii_status"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_receipts_on_user_id"
+  end
+
+  create_table "reconciliations", force: :cascade do |t|
+    t.integer "payment_id"
+    t.integer "receipt_id"
+    t.integer "amount_assigned_from_payment_to_receipt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_id"], name: "index_reconciliations_on_payment_id"
+    t.index ["receipt_id"], name: "index_reconciliations_on_receipt_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,6 +100,14 @@ ActiveRecord::Schema.define(version: 2018_10_01_232158) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vehicle_sizes", force: :cascade do |t|
+    t.string "vehicle_size_code"
+    t.string "vehicle_size_name"
+    t.string "vehicle_size_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "vehicles", force: :cascade do |t|
     t.string "patent"
     t.integer "size"
@@ -56,6 +119,14 @@ ActiveRecord::Schema.define(version: 2018_10_01_232158) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_vehicles_on_user_id"
+  end
+
+  create_table "wash_types", force: :cascade do |t|
+    t.string "wash_type_code"
+    t.string "wash_type_name"
+    t.string "wash_type_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "washers", force: :cascade do |t|

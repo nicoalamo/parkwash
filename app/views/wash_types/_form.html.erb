@@ -1,0 +1,32 @@
+<%= form_with(model: wash_type, local: true) do |form| %>
+  <% if wash_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wash_type.errors.count, "error") %> prohibited this wash_type from being saved:</h2>
+
+      <ul>
+      <% wash_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :wash_type_code %>
+    <%= form.text_field :wash_type_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wash_type_name %>
+    <%= form.text_field :wash_type_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wash_type_description %>
+    <%= form.text_field :wash_type_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

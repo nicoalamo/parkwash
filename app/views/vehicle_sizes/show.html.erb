@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle size code:</strong>
+  <%= @vehicle_size.vehicle_size_code %>
+</p>
+
+<p>
+  <strong>Vehicle size name:</strong>
+  <%= @vehicle_size.vehicle_size_name %>
+</p>
+
+<p>
+  <strong>Vehicle size description:</strong>
+  <%= @vehicle_size.vehicle_size_description %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_size_path(@vehicle_size) %> |
+<%= link_to 'Back', vehicle_sizes_path %>

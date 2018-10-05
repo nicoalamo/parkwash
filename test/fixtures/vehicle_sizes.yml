@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_size_code: MyString
+  vehicle_size_name: MyString
+  vehicle_size_description: MyString
+
+two:
+  vehicle_size_code: MyString
+  vehicle_size_name: MyString
+  vehicle_size_description: MyString

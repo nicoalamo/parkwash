@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  credit_note_creation_date: 2018-10-04
+  credit_note_informed_gross_amount: 1
+  credit_note_sii_status: MyString
+  receipt: one
+
+two:
+  credit_note_creation_date: 2018-10-04
+  credit_note_informed_gross_amount: 1
+  credit_note_sii_status: MyString
+  receipt: two

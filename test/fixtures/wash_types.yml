@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wash_type_code: MyString
+  wash_type_name: MyString
+  wash_type_description: MyString
+
+two:
+  wash_type_code: MyString
+  wash_type_name: MyString
+  wash_type_description: MyString

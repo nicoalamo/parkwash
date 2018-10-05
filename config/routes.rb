@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :prices
+  resources :vehicle_sizes
+  resources :wash_types
+  resources :places
+  resources :reconciliations
+  resources :credit_notes
+  resources :receipts
   resources :payments
   resources :washes
   resources :vehicles

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Places</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Place name</th>
+      <th>Place address</th>
+      <th>Place commune</th>
+      <th>Place city</th>
+      <th>Place contact name</th>
+      <th>Place contact cellphone</th>
+      <th>Place contact email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @places.each do |place| %>
+      <tr>
+        <td><%= place.place_name %></td>
+        <td><%= place.place_address %></td>
+        <td><%= place.place_commune %></td>
+        <td><%= place.place_city %></td>
+        <td><%= place.place_contact_name %></td>
+        <td><%= place.place_contact_cellphone %></td>
+        <td><%= place.place_contact_email %></td>
+        <td><%= link_to 'Show', place %></td>
+        <td><%= link_to 'Edit', edit_place_path(place) %></td>
+        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Place', new_place_path %>
